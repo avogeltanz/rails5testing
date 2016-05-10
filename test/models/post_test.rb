@@ -20,4 +20,19 @@ class PostTest < ActiveSupport::TestCase
     assert_equal post.errors[:description], ["can't be blank", "pick a longer description"]
   end
 
+  test "a description that is too long" do
+    # Arrange/Given
+    post = Post.new    
+    post.title = "Focus" 
+    focuser = "Jared"
+    3.times do
+      focuser += focuser
+    end   
+    post.description = focuser + "!"
+    # Act/When 
+    post.valid?
+    # Assert/Then
+    assert_equal post.errors[:description], ["pick a shorter description"]
+  end
+
 end
