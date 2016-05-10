@@ -10,4 +10,14 @@ class PostTest < ActiveSupport::TestCase
     assert post.save
   end
 
+  test "an invalid model" do
+    # Arrange/Given
+    post = Post.new    
+    # Act/When 
+    post.valid?
+    # Assert/Then
+    assert_equal post.errors[:title], ["can't be blank"]
+    assert_equal post.errors[:description], ["can't be blank", "pick a longer description"]
+  end
+
 end
