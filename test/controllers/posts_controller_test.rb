@@ -23,4 +23,12 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_equal response.body, file_fixture('posts_second.json').read
   end
 
+  test "getting all posts" do
+    # Act/When
+    get posts_url
+    # Assert/Then
+    assert_response :success
+    assert_equal response.body, file_fixture('posts_index.json').read
+  end
+
 end
