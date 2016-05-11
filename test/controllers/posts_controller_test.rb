@@ -11,6 +11,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     get post_url @post_one.id
     # Assert/Then
     assert_response :success
+    assert_equal response.body, file_fixture('posts_first.json').read
   end
 
 end
