@@ -7,3 +7,7 @@
 one:
   title: First title
   description: First description
+
+two:
+  title: Second title
+  description: Second description

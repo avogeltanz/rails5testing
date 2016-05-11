@@ -4,6 +4,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     # Arrange/Given
     @post_one = posts(:one)
+    @post_two = posts(:two)
   end
   
   test "getting the first post" do
