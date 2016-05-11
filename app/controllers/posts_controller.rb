@@ -12,6 +12,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(params.permit(:title, :description))
-    render json: @post
+    if @post.valid?
+      render json: @post
+    else
+      render status: :unprocessable_entity
+    end
   end
 end
