@@ -31,4 +31,12 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_equal response.body, file_fixture('posts_index.json').read
   end
 
+  test "creating a post" do
+    # Act/When
+    post posts_url, params: { title: "Created Title", description: "Created Description" }
+    # Assert/Then
+    assert_response :success
+    assert_equal response.body, file_fixture('posts_create.json').read
+  end
+
 end
